@@ -24,12 +24,12 @@ TEST(gen_tests, prefix_suffix) {
 
     Prefix prefix;
 
-    prefix.push_back("состоящий");
-    prefix.push_back("из");
+    prefix.push_back("создан");
+    prefix.push_back("для");
 
     EXPECT_TRUE(gen.hasPrefix(prefix));
 
-    EXPECT_EQ(gen[prefix][0], "более,");
+    EXPECT_EQ(gen[prefix][0], "тестирования");
 }
 
 TEST(gen_tests, correct_suffix_single) {
@@ -41,7 +41,7 @@ TEST(gen_tests, correct_suffix_single) {
 
     unsigned state = 10;
 
-    EXPECT_EQ(std::get<0>(gen.getNextSuffix(start, &state)), "состоящий");
+    EXPECT_EQ(std::get<0>(gen.getNextSuffix(start, &state)), "создан");
 }
 
 TEST(gen_tests, correct_suffix_multiple) {
@@ -56,7 +56,7 @@ TEST(gen_tests, correct_suffix_multiple) {
 
     std::string result = std::get<0>(gen.getNextSuffix(start, &state));
 
-    EXPECT_TRUE(result == "состоящий" || result == "имеющий");
+    EXPECT_TRUE(result == "создан" || result == "есть");
 }
 
 TEST(gen_tests, generate_n_words) {
