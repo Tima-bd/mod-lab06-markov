@@ -29,7 +29,7 @@ TEST(gen_tests, prefix_suffix) {
 
     EXPECT_TRUE(gen.hasPrefix(prefix));
 
-    EXPECT_EQ(gen[prefix][0], "тестирования");
+    EXPECT_EQ(gen[prefix][0], "проверки");
 }
 
 TEST(gen_tests, correct_suffix_single) {
@@ -68,7 +68,7 @@ TEST(gen_tests, generate_n_words) {
     unsigned state = time(nullptr);
     std::stringstream out_ss;
 
-    gen.write(out_ss, start, &state, 5);
+    gen.write(out_ss, start, &state, 3);
 
     std::stringstream read_out_ss(out_ss.str());
     std::string check;
@@ -77,9 +77,8 @@ TEST(gen_tests, generate_n_words) {
     EXPECT_EQ(check, "Этот");
 
     read_out_ss >> check;
-    EXPECT_EQ(check, "текст,");
+    EXPECT_EQ(check, "текст");
 
     read_out_ss >> check;
     EXPECT_EQ(check, "создан");
-
 }
